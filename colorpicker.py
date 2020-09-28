@@ -1,7 +1,10 @@
-# PyQt5 Modern Color Picker by Tom F.
-# Version 1.0.0
-#
-#
+# ------------------------------------- #
+#                                       #
+# Modern Color Picker by Tom F.         #
+# Version 1.0.0                         #
+# made with Qt Creator & PyQt5          #
+#                                       #
+# ------------------------------------- #
 
 
 from PyQt5.QtCore import (QPoint, Qt)
@@ -20,7 +23,7 @@ class ColorPicker(QDialog):
         self.ui = Ui_ColorPicker()
         self.ui.setupUi(self)
 
-        # Make Framless
+        # Make Frameless
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.setWindowTitle("Color Picker")

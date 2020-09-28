@@ -32,7 +32,6 @@ class RtGui(qtw.QMainWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        #self.setWindowIcon(QIcon("se_logo.ico"))
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
@@ -126,7 +125,7 @@ class RtGui(qtw.QMainWindow):
 
 
 
-## UI Functions
+    # UI Functions
     def openScene(self):
         dialog = qtw.QFileDialog()
         dialog.setNameFilter("Scene Files (*.sc)")
@@ -203,7 +202,7 @@ class RtGui(qtw.QMainWindow):
             self.blur.setEnabled(False)
 
 
-## Utility
+    # Utility
     def checkBtn(self, b):
         if b.isCheckable():
             if not b.isChecked():
@@ -260,7 +259,7 @@ class RtGui(qtw.QMainWindow):
 
 
 
-## Dragging Functions
+    # Dragging Functions
     def setDragPos(self, event):
         self.dragPos = event.globalPos()
 
@@ -271,7 +270,8 @@ class RtGui(qtw.QMainWindow):
             self.dragPos = event.globalPos()
             event.accept()
 
-## Object Functions
+
+    # Object Functions
     def addobj(self):
 
         for i in range(0,99999):
@@ -357,7 +357,8 @@ class RtGui(qtw.QMainWindow):
         for obj in self.objects:
             self.ui.obj_list.addItem(obj["name"])
 
-## Material Functions
+
+    ## Material Functions
     def addmat(self):
 
         for i in range(0,99999):
@@ -527,7 +528,7 @@ class RtGui(qtw.QMainWindow):
             self.ui.mat_list.addItem(mat["name"])
 
 
-
+# RenderHost class for multithreaded running of the ruby raytracer engine
 class RenderHost(qtc.QProcess):
 
     outputSignal = qtc.pyqtSignal(str)
@@ -553,6 +554,7 @@ class RenderHost(qtc.QProcess):
         self.start(cmd)
 
 
+# Function to set transparent BG, frameless mode & dropshadow on dsframe
 def set_frameless_attrs(object, dsframe=None):
     object.setWindowFlags(qtc.Qt.FramelessWindowHint)
     object.setAttribute(qtc.Qt.WA_TranslucentBackground)
