@@ -1,0 +1,2434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>880</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>880</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>880</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton{
+	background-color: rgb(221, 51, 34);
+	color: rgb(29, 29, 29);
+	border: 0px solid;
+	border-radius: 10px;
+}
+QPushButton:hover{
+	background-color: rgb(255, 85, 68);
+}
+QPushButton:pressed{
+	border: 1px solid rgb(32, 32, 32);
+}
+
+
+
+QLineEdit{
+	color: rgb(221, 221, 221);
+	background-color: rgb(48, 48, 48);
+	border: 2px solid rgb(64, 64, 64);
+	border-radius: 10px;
+	selection-color: rgb(16, 16, 16);
+	selection-background-color: rgb(221, 51, 34);
+}
+QLineEdit::focus{
+	border-color: rgb(221, 51, 34);
+}
+
+QToolTip{
+	background-color: rgb(26, 26, 26);
+	color: rgb(170, 170, 170);
+	border: 1px solid rgb(50,50,50);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QVBoxLayout" name="drop_shadow_layout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="drop_shadow_frame">
+      <property name="styleSheet">
+       <string notr="true">QFrame{
+	background-color: rgb(32,32,32);
+	border-radius: 10px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="title_bar">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame{
+background-color: none;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="frame_title">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Roboto Condensed Light</family>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>10</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>10</number>
+             </property>
+             <property name="bottomMargin">
+              <number>9</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_title">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>130</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                 <pointsize>14</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(221, 51, 34);
+background-color: none;</string>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;SCENE&lt;/span&gt; EDITOR&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="openbtn">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>55</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>OPEN</string>
+               </property>
+               <property name="shortcut">
+                <string>Ctrl+O</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="savebtn">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>55</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>SAVE</string>
+               </property>
+               <property name="shortcut">
+                <string>Ctrl+S</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="path_label">
+               <property name="minimumSize">
+                <size>
+                 <width>271</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Segoe UI</family>
+                 <pointsize>8</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(170, 170, 170);</string>
+               </property>
+               <property name="text">
+                <string>new_scene.sc</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="settingsbtn">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>80</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="text">
+                <string>SETTINGS</string>
+               </property>
+               <property name="shortcut">
+                <string>Ctrl+Shift+S</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="renderbtn">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>80</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="text">
+                <string>RENDER</string>
+               </property>
+               <property name="shortcut">
+                <string>Ctrl+R</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_btns">
+            <property name="maximumSize">
+             <size>
+              <width>66</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>10</number>
+             </property>
+             <property name="topMargin">
+              <number>9</number>
+             </property>
+             <property name="rightMargin">
+              <number>10</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="btn_minimize">
+               <property name="minimumSize">
+                <size>
+                 <width>16</width>
+                 <height>16</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+	border: none;
+	border-radius: 10px;		
+	background-color: rgb(255, 170, 0);
+}
+
+QPushButton:hover {	
+	background-color: rgba(255, 170, 0, 150);
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>../minimize.ico</normaloff>../minimize.ico</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>14</width>
+                 <height>14</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_close">
+               <property name="minimumSize">
+                <size>
+                 <width>16</width>
+                 <height>16</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+	border: none;
+	border-radius: 10px;		
+	background-color: rgb(255, 0, 0);
+}
+QPushButton:hover {		
+	background-color: rgba(255, 0, 0, 150);
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>../exit.ico</normaloff>../exit.ico</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>14</width>
+                 <height>14</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="content_bar">
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+background-color: rgb(28,28,28);
+}
+
+</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="1">
+           <widget class="QFrame" name="material_properties">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>367</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>376</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QFrame{
+	background-color: rgb(39, 39, 39);
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <widget class="QLabel" name="matlabel">
+             <property name="geometry">
+              <rect>
+               <x>9</x>
+               <y>9</y>
+               <width>401</width>
+               <height>21</height>
+              </rect>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>21</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(221, 51, 34);
+</string>
+             </property>
+             <property name="text">
+              <string>&lt;strong&gt;MATERIALS&lt;/strong&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QFrame" name="mat_entryfields">
+             <property name="geometry">
+              <rect>
+               <x>9</x>
+               <y>36</y>
+               <width>400</width>
+               <height>331</height>
+              </rect>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	background-color: none;
+	color: rgb(221, 51, 34);
+	font-family: Segoe UI;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <widget class="QLineEdit" name="matname">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>20</y>
+                <width>381</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="difz">
+              <property name="geometry">
+               <rect>
+                <x>190</x>
+                <y>70</y>
+                <width>81</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>B</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="difx">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>70</y>
+                <width>81</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>R</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="dify">
+              <property name="geometry">
+               <rect>
+                <x>100</x>
+                <y>70</y>
+                <width>81</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>G</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="diffusemap">
+              <property name="geometry">
+               <rect>
+                <x>340</x>
+                <y>70</y>
+                <width>51</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	border: 2px solid rgb(64, 64, 64);
+	border-radius: 10px;	
+	background-color: rgb(48, 48, 48);
+}
+QPushButton:hover {	
+	border-color: rgb(221, 51, 34);
+}
+
+QPushButton:pressed {	
+	border-color: rgb(255, 102, 85);
+}
+QPushButton:checked{	
+	border-color: rgb(96, 221, 33);
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../texture.ico</normaloff>
+                <activeon>../textureh.ico</activeon>../texture.ico</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>22</width>
+                <height>22</height>
+               </size>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="specularmap">
+              <property name="geometry">
+               <rect>
+                <x>340</x>
+                <y>120</y>
+                <width>51</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	border: 2px solid rgb(64, 64, 64);
+	border-radius: 10px;	
+	background-color: rgb(48, 48, 48);
+}
+QPushButton:hover {	
+	border-color: rgb(221, 51, 34);
+}
+
+QPushButton:pressed {	
+	border-color: rgb(255, 102, 85);
+}
+QPushButton:checked{	
+	border-color: rgb(96, 221, 33);
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../texture.ico</normaloff>
+                <activeon>../textureh.ico</activeon>../texture.ico</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>22</width>
+                <height>22</height>
+               </size>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="specz">
+              <property name="geometry">
+               <rect>
+                <x>190</x>
+                <y>120</y>
+                <width>81</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>B</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="specx">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>120</y>
+                <width>81</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>R</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="specy">
+              <property name="geometry">
+               <rect>
+                <x>100</x>
+                <y>120</y>
+                <width>81</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>G</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="emisz">
+              <property name="geometry">
+               <rect>
+                <x>190</x>
+                <y>220</y>
+                <width>81</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>B</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="emisy">
+              <property name="geometry">
+               <rect>
+                <x>100</x>
+                <y>220</y>
+                <width>81</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>G</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="emisx">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>220</y>
+                <width>81</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>R</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="reflectivity">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>170</y>
+                <width>381</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+             </widget>
+             <widget class="QLabel" name="matname_label">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>0</y>
+                <width>361</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Material Name</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="diffuse_label">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>50</y>
+                <width>361</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Diffuse</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="specular_label">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>100</y>
+                <width>361</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Specular</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="reflectivity_label">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>150</y>
+                <width>361</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Reflectivity</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="emission_label">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>200</y>
+                <width>361</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Emission</string>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="normalmap">
+              <property name="geometry">
+               <rect>
+                <x>340</x>
+                <y>270</y>
+                <width>51</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	border: 2px solid rgb(64, 64, 64);
+	border-radius: 10px;	
+	background-color: rgb(48, 48, 48);
+}
+QPushButton:hover {	
+	border-color: rgb(221, 51, 34);
+}
+
+QPushButton:pressed {	
+	border-color: rgb(255, 102, 85);
+}
+QPushButton:checked{	
+	border-color: rgb(96, 221, 33);
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../texture.ico</normaloff>
+                <activeon>../textureh.ico</activeon>../texture.ico</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>22</width>
+                <height>22</height>
+               </size>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QLabel" name="normal_label">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>250</y>
+                <width>361</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Normal</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="normalstrength">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>270</y>
+                <width>321</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="diffusevis">
+              <property name="geometry">
+               <rect>
+                <x>280</x>
+                <y>70</y>
+                <width>51</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	border: 2px solid rgb(64, 64, 64);
+	border-radius: 10px;	
+	background-color: #000000;
+}
+QPushButton:hover {	
+	border-color: rgb(221, 51, 34);
+}
+
+QPushButton:pressed {	
+	border-color: rgb(255, 102, 85);
+}
+QPushButton:checked{	
+	border-color: rgb(96, 221, 33);
+}</string>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="specularvis">
+              <property name="geometry">
+               <rect>
+                <x>280</x>
+                <y>120</y>
+                <width>51</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	border: 2px solid rgb(64, 64, 64);
+	border-radius: 10px;	
+	background-color: #000000;
+}
+QPushButton:hover {	
+	border-color: rgb(221, 51, 34);
+}
+
+QPushButton:pressed {	
+	border-color: rgb(255, 102, 85);
+}
+QPushButton:checked{	
+	border-color: rgb(96, 221, 33);
+}</string>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="emissionvis">
+              <property name="geometry">
+               <rect>
+                <x>280</x>
+                <y>220</y>
+                <width>111</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	border: 2px solid rgb(64, 64, 64);
+	border-radius: 10px;	
+	background-color: #000;
+}
+QPushButton:hover {	
+	border-color: rgb(221, 51, 34);
+}
+
+QPushButton:pressed {	
+	border-color: rgb(255, 102, 85);
+}
+QPushButton:checked{	
+	border-color: rgb(96, 221, 33);
+}</string>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QPushButton" name="applymat">
+             <property name="geometry">
+              <rect>
+               <x>170</x>
+               <y>350</y>
+               <width>80</width>
+               <height>20</height>
+              </rect>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>80</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::NoFocus</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>APPLY</string>
+             </property>
+             <property name="shortcut">
+              <string>Return</string>
+             </property>
+            </widget>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QFrame" name="object_list_frame">
+            <property name="maximumSize">
+             <size>
+              <width>418</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Segoe UI</family>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QFrame{
+background-color: rgb(39, 39, 39);
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="0" column="0">
+              <widget class="QPushButton" name="addobj">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Segoe UI</family>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <italic>false</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>ADD</string>
+               </property>
+               <property name="shortcut">
+                <string>Alt+O</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="delobj">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Segoe UI</family>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <italic>false</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>DEL</string>
+               </property>
+               <property name="shortcut">
+                <string>Backspace, Del</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" rowspan="3">
+              <widget class="QListWidget" name="obj_list">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QListWidget{
+	background-color: rgb(39, 39, 39);
+	color: rgb(170, 170, 170);
+}
+
+QScrollBar:horizontal {
+    border: none;
+    background: #303030;
+    height: 14px;
+    margin: 0px 21px 0 21px;
+	border-radius: 0px;
+}
+QScrollBar::handle:horizontal {
+    background: #dd3322;
+    min-width: 25px;
+	border-radius: 7px
+}
+QScrollBar::add-line:horizontal {
+    border: none;
+    background: #303030;
+    width: 20px;
+	border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal {
+    border: none;
+    background: #303030;
+    width: 20px;
+	border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal
+{
+     background: none;
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
+{
+     background: none;
+}
+
+QListWidget::item
+{
+margin-top: 0px;
+	margin-bottom: 3px;
+	margin-left: 0px;
+	margin-right: 3px;
+	padding: 5px;
+    background: #1a1a1a;
+	border-radius: 13px;
+border: none;
+}
+QListWidget::item:selected
+{
+    background: #dd3322;
+	color: #101010;
+	border: none;
+	padding: 5px
+}
+QListWidget::item:hover
+{
+    background: #505050;
+	color: #101010;
+	margin-top: 2px;
+	margin-bottom: 5px;
+	margin-left: 2px;
+	margin-right: 5px;
+border-radius: 11px;
+}
+
+</string>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>false</bool>
+               </property>
+               <property name="isWrapping" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="spacing">
+                <number>20</number>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QPushButton" name="clearobj">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Segoe UI</family>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <italic>false</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>CLEAR</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QFrame" name="object_properties">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>376</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>376</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QFrame{
+background-color: rgb(39, 39, 39);
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <widget class="QLabel" name="objlabel">
+             <property name="geometry">
+              <rect>
+               <x>9</x>
+               <y>9</y>
+               <width>401</width>
+               <height>21</height>
+              </rect>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>21</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(221, 51, 34);
+</string>
+             </property>
+             <property name="text">
+              <string>&lt;strong&gt;OBJECTS&lt;/strong&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+            <widget class="QFrame" name="obj_entryfields">
+             <property name="geometry">
+              <rect>
+               <x>9</x>
+               <y>36</y>
+               <width>400</width>
+               <height>305</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit{
+color: rgb(221, 221, 221);
+background-color: rgb(48, 48, 48);
+border: 2px solid rgb(64, 64, 64);
+}
+
+QLineEdit::focus{
+border-color: rgb(221, 51, 34);
+}
+
+QLabel{
+	background-color: none;
+	color: rgb(221, 51, 34);
+	font-family: Segoe UI;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <widget class="QLineEdit" name="objname">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>20</y>
+                <width>381</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="radius">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>120</y>
+                <width>381</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="objmat">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>170</y>
+                <width>381</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string/>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="posz">
+              <property name="geometry">
+               <rect>
+                <x>270</x>
+                <y>70</y>
+                <width>121</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>Z</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="posx">
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>70</y>
+                <width>121</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>X</string>
+              </property>
+             </widget>
+             <widget class="QLineEdit" name="posy">
+              <property name="geometry">
+               <rect>
+                <x>140</x>
+                <y>70</y>
+                <width>121</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>Segoe UI</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>ArrowCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="placeholderText">
+               <string>Y</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="material_label">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>150</y>
+                <width>361</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Material</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="radius_label">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>100</y>
+                <width>361</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Radius</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="position_label">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>50</y>
+                <width>361</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Position</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="objname_label">
+              <property name="geometry">
+               <rect>
+                <x>20</x>
+                <y>0</y>
+                <width>361</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string>Object Name</string>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QPushButton" name="applyobj">
+             <property name="geometry">
+              <rect>
+               <x>170</x>
+               <y>350</y>
+               <width>80</width>
+               <height>20</height>
+              </rect>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>80</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::NoFocus</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="text">
+              <string>APPLY</string>
+             </property>
+             <property name="shortcut">
+              <string>Return</string>
+             </property>
+            </widget>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QFrame" name="material_list_frame">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QFrame{
+background-color: rgb(39, 39, 39);
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="0" column="0">
+              <widget class="QPushButton" name="addmat">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Segoe UI</family>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <italic>false</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>ADD</string>
+               </property>
+               <property name="shortcut">
+                <string>Alt+M</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1" rowspan="3">
+              <widget class="QListWidget" name="mat_list">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QListWidget{
+	background-color: rgb(39, 39, 39);
+	color: rgb(170, 170, 170);
+}
+
+QScrollBar:horizontal {
+    border: none;
+    background: #303030;
+    height: 14px;
+    margin: 0px 21px 0 21px;
+	border-radius: 0px;
+}
+QScrollBar::handle:horizontal {
+    background: #dd3322;
+    min-width: 25px;
+	border-radius: 7px
+}
+QScrollBar::add-line:horizontal {
+    border: none;
+    background: #303030;
+    width: 20px;
+	border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal {
+    border: none;
+    background: #303030;
+    width: 20px;
+	border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal
+{
+     background: none;
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
+{
+     background: none;
+}
+
+QListWidget::item
+{
+margin-top: 0px;
+	margin-bottom: 3px;
+	margin-left: 0px;
+	margin-right: 3px;
+	padding: 5px;
+    background: #1a1a1a;
+	border-radius: 13px;
+border: none;
+}
+QListWidget::item:selected
+{
+    background: #dd3322;
+	color: #101010;
+	border: none;
+	padding: 5px
+}
+QListWidget::item:hover
+{
+    background: #505050;
+	color: #101010;
+	margin-top: 2px;
+	margin-bottom: 5px;
+	margin-left: 2px;
+	margin-right: 5px;
+border-radius: 11px;
+}
+
+</string>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>false</bool>
+               </property>
+               <property name="isWrapping" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="spacing">
+                <number>5</number>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QPushButton" name="clearmat">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Segoe UI</family>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <italic>false</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>CLEAR</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="delmat">
+               <property name="minimumSize">
+                <size>
+                 <width>50</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Segoe UI</family>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <italic>false</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::NoFocus</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>DEL</string>
+               </property>
+               <property name="shortcut">
+                <string>Backspace, Del</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="credits_bar">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(32, 32, 32);</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item alignment="Qt::AlignVCenter">
+           <widget class="QFrame" name="frame_label_credits">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_credits">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Roboto</family>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(80, 80, 80);</string>
+               </property>
+               <property name="text">
+                <string>Ruby Raytracer GUI by Tom F.</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frame">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <widget class="QFrame" name="progressViewer">
+                <property name="geometry">
+                 <rect>
+                  <x>250</x>
+                  <y>4</y>
+                  <width>20</width>
+                  <height>20</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border-radius: 10px;
+background-color: qconicalgradient(cx:0.5,cy:0.5,angle:90, stop:0 transparent, stop:0.399 transparent, stop:0.4 rgba(221, 51, 34, 255));</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+               </widget>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_status">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>80</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Segoe UI</family>
+                 <pointsize>8</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(221, 51, 34);</string>
+               </property>
+               <property name="text">
+                <string>Rendering</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QProgressBar" name="progressBar">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>200</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="baseSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Segoe UI</family>
+                 <pointsize>9</pointsize>
+                 <stylestrategy>PreferAntialias</stylestrategy>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QProgressBar{
+color: #aaaaaa;
+margin: 5px;
+background-color: #303030;
+border: none;
+border-radius: 9
+}
+
+QProgressBar:chunk{
+background-color: #dd3322;
+border: none;
+border-radius: 9;
+}</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>objname</tabstop>
+  <tabstop>posx</tabstop>
+  <tabstop>posy</tabstop>
+  <tabstop>posz</tabstop>
+  <tabstop>radius</tabstop>
+  <tabstop>objmat</tabstop>
+  <tabstop>matname</tabstop>
+  <tabstop>difx</tabstop>
+  <tabstop>dify</tabstop>
+  <tabstop>difz</tabstop>
+  <tabstop>specx</tabstop>
+  <tabstop>specy</tabstop>
+  <tabstop>specz</tabstop>
+  <tabstop>reflectivity</tabstop>
+  <tabstop>emisx</tabstop>
+  <tabstop>emisy</tabstop>
+  <tabstop>emisz</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
