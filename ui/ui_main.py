@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:/Files/Code/Python/RtGUI/ui/ui_main.ui'
+# Form implementation generated from reading ui file 'D:/Files/Code/Python/repos/RtGUI/ui/ui_main.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -189,7 +189,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_minimize.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("D:/Files/Code/Python/RtGUI/ui\\../minimize.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("D:/Files/Code/Python/repos/RtGUI/ui\\../icons/minimize.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_minimize.setIcon(icon)
         self.btn_minimize.setIconSize(QtCore.QSize(14, 14))
         self.btn_minimize.setObjectName("btn_minimize")
@@ -209,7 +209,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_close.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("D:/Files/Code/Python/RtGUI/ui\\../exit.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("D:/Files/Code/Python/repos/RtGUI/ui\\../icons/exit.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_close.setIcon(icon1)
         self.btn_close.setIconSize(QtCore.QSize(14, 14))
         self.btn_close.setObjectName("btn_close")
@@ -329,8 +329,8 @@ class Ui_MainWindow(object):
 "}")
         self.diffusemap.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("D:/Files/Code/Python/RtGUI/ui\\../texture.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap("D:/Files/Code/Python/RtGUI/ui\\../textureh.ico"), QtGui.QIcon.Active, QtGui.QIcon.On)
+        icon2.addPixmap(QtGui.QPixmap("D:/Files/Code/Python/repos/RtGUI/ui\\../icons/texture.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("D:/Files/Code/Python/repos/RtGUI/ui\\../icons/textureh.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.diffusemap.setIcon(icon2)
         self.diffusemap.setIconSize(QtCore.QSize(22, 22))
         self.diffusemap.setCheckable(True)
@@ -1027,19 +1027,6 @@ class Ui_MainWindow(object):
         self.label_credits.setStyleSheet("color: rgb(80, 80, 80);")
         self.label_credits.setObjectName("label_credits")
         self.horizontalLayout_5.addWidget(self.label_credits)
-        self.frame = QtWidgets.QFrame(self.frame_label_credits)
-        self.frame.setMinimumSize(QtCore.QSize(0, 28))
-        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame.setObjectName("frame")
-        self.progressViewer = QtWidgets.QFrame(self.frame)
-        self.progressViewer.setGeometry(QtCore.QRect(250, 4, 20, 20))
-        self.progressViewer.setStyleSheet("background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:0.24581 rgba(0, 0, 0, 0), stop:0.399 rgba(0, 0, 0, 0), stop:0.4 rgba(221, 51, 34, 255));\n"
-"border-radius: 10px;")
-        self.progressViewer.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.progressViewer.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.progressViewer.setObjectName("progressViewer")
-        self.horizontalLayout_5.addWidget(self.frame)
         self.label_status = QtWidgets.QLabel(self.frame_label_credits)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -1058,36 +1045,32 @@ class Ui_MainWindow(object):
         self.label_status.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_status.setObjectName("label_status")
         self.horizontalLayout_5.addWidget(self.label_status)
-        self.progressBar = QtWidgets.QProgressBar(self.frame_label_credits)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.progressBar.sizePolicy().hasHeightForWidth())
-        self.progressBar.setSizePolicy(sizePolicy)
-        self.progressBar.setMinimumSize(QtCore.QSize(0, 30))
-        self.progressBar.setMaximumSize(QtCore.QSize(200, 16777215))
-        self.progressBar.setBaseSize(QtCore.QSize(0, 0))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(9)
-        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
-        self.progressBar.setFont(font)
-        self.progressBar.setStyleSheet("QProgressBar{\n"
-"color: #aaaaaa;\n"
-"margin: 5px;\n"
-"background-color: #303030;\n"
-"border: none;\n"
-"border-radius: 9\n"
-"}\n"
-"\n"
-"QProgressBar:chunk{\n"
-"background-color: #dd3322;\n"
-"border: none;\n"
-"border-radius: 9;\n"
-"}")
-        self.progressBar.setAlignment(QtCore.Qt.AlignCenter)
-        self.progressBar.setObjectName("progressBar")
-        self.horizontalLayout_5.addWidget(self.progressBar)
+        self.frame = QtWidgets.QFrame(self.frame_label_credits)
+        self.frame.setMinimumSize(QtCore.QSize(0, 28))
+        self.frame.setMaximumSize(QtCore.QSize(200, 16777215))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.bar_container = QtWidgets.QFrame(self.frame)
+        self.bar_container.setGeometry(QtCore.QRect(0, 5, 200, 20))
+        self.bar_container.setStyleSheet("background-color: rgb(48,48,48);")
+        self.bar_container.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.bar_container.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.bar_container.setObjectName("bar_container")
+        self.bar = QtWidgets.QLabel(self.bar_container)
+        self.bar.setGeometry(QtCore.QRect(-50, 0, 200, 20))
+        self.bar.setStyleSheet("background-color: rgb(221, 51, 34);\n"
+"border-radius: 10px;")
+        self.bar.setText("")
+        self.bar.setObjectName("bar")
+        self.edge_rounder = QtWidgets.QLabel(self.bar_container)
+        self.edge_rounder.setGeometry(QtCore.QRect(-6, -6, 212, 32))
+        self.edge_rounder.setStyleSheet("border: 6px solid #202020;\n"
+"border-radius: 16px;\n"
+"background-color: none;")
+        self.edge_rounder.setText("")
+        self.edge_rounder.setObjectName("edge_rounder")
+        self.horizontalLayout_5.addWidget(self.frame)
         self.horizontalLayout_2.addWidget(self.frame_label_credits, 0, QtCore.Qt.AlignVCenter)
         self.verticalLayout.addWidget(self.credits_bar)
         self.drop_shadow_layout.addWidget(self.drop_shadow_frame)

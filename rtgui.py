@@ -4,6 +4,8 @@ from PyQt5 import QtGui as qtg
 from PyQt5.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent, pyqtSlot, pyqtSignal)
 from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PyQt5.QtWidgets import *
+
+# bultins
 import sys
 import os
 import ntpath
@@ -16,15 +18,6 @@ from ui.settings import Ui_Settings
 
 #Custom Widgets
 from colorpicker import ColorPicker
-
-DGREY = "#202020"
-LGREY = "#303030"
-GREY = "#272727"
-
-DRED = "#3c2020"
-LRED = "#ff5544"
-RED = "#dd3322"
-
 
 
 class RtGui(qtw.QMainWindow):
@@ -51,7 +44,19 @@ class RtGui(qtw.QMainWindow):
         self.ui.centralwidget.setGraphicsEffect(self.blur)
         self.blur.setEnabled(False)
 
-        self.ui.progressBar.setValue(0)
+        # Initialize Colorize Effect
+        self.colorize = qtw.QGraphicsColorizeEffect(self)
+        self.colorize.setColor(QColor(0,0,0))
+        self.colorize2 = qtw.QGraphicsColorizeEffect(self)
+        self.colorize2.setColor(QColor(0,0,0))
+        self.colorize3 = qtw.QGraphicsColorizeEffect(self)
+        self.colorize3.setColor(QColor(0,0,0))
+        self.ui.title_bar.setGraphicsEffect(self.colorize)
+        self.ui.credits_bar.setGraphicsEffect(self.colorize2)
+        self.ui.content_bar.setGraphicsEffect(self.colorize3)
+        self.colorize.setEnabled(False)
+        self.colorize2.setEnabled(False)
+        self.colorize3.setEnabled(False)
 
         # Initialize Settings
         self.settings = QWidget()
@@ -80,6 +85,8 @@ class RtGui(qtw.QMainWindow):
 
         # Color Picking
         self.ui.diffusevis.clicked.connect(lambda: self.pick_color("diffuse"))
+        self.ui.specularvis.clicked.connect(lambda: self.pick_color("specular"))
+        self.ui.emissionvis.clicked.connect(lambda: self.pick_color("emission"))
 
         # Connect Buttons to Functions
         self.ui.btn_close.clicked.connect(self.exit)
@@ -109,7 +116,8 @@ class RtGui(qtw.QMainWindow):
         self.scenepath = None
         self.savetoexit = True
         self.rrtloc = '"D:/Files/Code/Ruby Raytracer/rrt_render.rb"'
-        #self.rrtloc = '"C:/Users/Avaze/Desktop/Ruby Raytracer2/rrt_render.rb"'
+        self.rrtloc = '"D:/Files/Code/repos/ruby-raytracer/rrt_render.exe"'
+        self.rrtloc = '"C:/Users/Avaze/Desktop/rrt_render.exe"'
 
         self.DEFAULTMAT = {"name": "default", "difx": 200, "dify": 200, "difz": 200, "specx": 255, "specy": 255, "specz": 255, "reflectivity": 0, "emisx": 0, "emisy": 0, "emisz": 0, "diftex": None, "spectex": None, "normaltex": None, "normalstrength": 1}
         self.diffuse = None
@@ -165,16 +173,16 @@ class RtGui(qtw.QMainWindow):
             self.savetoexit = True
 
     def opensettings(self):
-        self.blur.setEnabled(True)
+        self.unfocusGui()
         self.settings.show()
 
     def exitsettings(self):
         self.settings.close()
-        self.blur.setEnabled(False)
+        self.focusGui()
 
     def renderScene(self):
         self.saveScene()
-        cmd = f'ruby {self.rrtloc} ' + str(self.scenepath)
+        cmd = f'{self.rrtloc} ' + str(self.scenepath)
         self.ui.label_status.setText("Rendering")
         self.rhost.run(cmd)
 
@@ -184,6 +192,7 @@ class RtGui(qtw.QMainWindow):
             self.close()
         else:
             self.blur.setEnabled(True)
+            self.colorize.setEnabled(True)
             dialog = QDialog()
             ui = Dlg_yn()
             ui.setupUi(dialog)
@@ -200,6 +209,7 @@ class RtGui(qtw.QMainWindow):
                 self.close()
 
             self.blur.setEnabled(False)
+            self.colorize.setEnabled(False)
 
 
     # Utility
@@ -229,34 +239,52 @@ class RtGui(qtw.QMainWindow):
         self.ui.emissionvis.setStyleSheet("QPushButton{border: 2px solid rgb(64, 64, 64);border-radius: 10px;" + f"background-color: rgb({emisx}, {emisy}, {emisz});" + "}QPushButton:hover{border-color: rgb(221, 51, 34);}QPushButton:pressed{border-color: rgb(255, 102, 85);}")
 
     def onOutput(self, str):
-        #self.ui.progressBar.setValue(10 * int(str.strip()[-3:-1]))
         value = int(str.strip())
-        self.ui.progressViewer.setStyleSheet(f"border-radius: 10px;background-color:qconicalgradient(cx:0.5,cy:0.5,angle:90,stop:0 #272727,stop:{0.99 - value / 100.0} #272727, stop:{1 - value / 100.0} rgba(221, 51, 34, 255));")
-        if value >= 10:
-            if value == 100: self.ui.label_status.setText("Finished")
-            self.ui.progressBar.setValue(value)
-        else:
-            self.ui.progressBar.setValue(0)
-        self.ui.progressBar.update()
+        if value == 100: self.ui.label_status.setText("Finished")
+        self.ui.bar.move(-200 + 2*value, 0)
 
     def pick_color(self, mode):
 
         cp = ColorPicker()
-        self.blur.setEnabled(True)
-
+        self.unfocusGui()
 
         if mode == "diffuse":
-            try:
-                oldr,oldg,oldb = (int(self.ui.difx.text()), int(self.ui.dify.text()), int(self.ui.difz.text()))
-            except:
-                oldr,oldg,olb = (0,0,0)
-            r,g,b = cp.getColor((oldr,oldg,olb))
+            try: oldr,oldg,oldb = (int(self.ui.difx.text()), int(self.ui.dify.text()), int(self.ui.difz.text()))
+            except: oldr,oldg,oldb = (0,0,0)
+            r,g,b = cp.getColor((oldr,oldg,oldb))
             self.ui.difx.setText(str(int(r)))
             self.ui.dify.setText(str(int(g)))
             self.ui.difz.setText(str(int(b)))
 
+        if mode == "specular":
+            try: oldr,oldg,oldb = (int(self.ui.specx.text()), int(self.ui.specy.text()), int(self.ui.specz.text()))
+            except: oldr,oldg,oldb = (0,0,0)
+            r,g,b = cp.getColor((oldr,oldg,oldb))
+            self.ui.specx.setText(str(int(r)))
+            self.ui.specy.setText(str(int(g)))
+            self.ui.specz.setText(str(int(b)))
+
+        if mode == "emission":
+            try: oldr,oldg,oldb = (int(self.ui.emisx.text()), int(self.ui.emisy.text()), int(self.ui.emisz.text()))
+            except: oldr,oldg,oldb = (0,0,0)
+            r,g,b = cp.getColor((oldr,oldg,oldb))
+            self.ui.emisx.setText(str(int(r)))
+            self.ui.emisy.setText(str(int(g)))
+            self.ui.emisz.setText(str(int(b)))
+
+        self.focusGui()
+
+    def focusGui(self):
+        self.colorize.setEnabled(False)
+        self.colorize2.setEnabled(False)
+        self.colorize3.setEnabled(False)
         self.blur.setEnabled(False)
 
+    def unfocusGui(self):
+        self.colorize.setEnabled(True)
+        self.colorize2.setEnabled(True)
+        self.colorize3.setEnabled(True)
+        self.blur.setEnabled(True)
 
 
     # Dragging Functions
@@ -358,7 +386,7 @@ class RtGui(qtw.QMainWindow):
             self.ui.obj_list.addItem(obj["name"])
 
 
-    ## Material Functions
+    # Material Functions
     def addmat(self):
 
         for i in range(0,99999):
