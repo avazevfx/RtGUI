@@ -1537,31 +1537,23 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 
 QListWidget::item
 {
-margin-top: 0px;
+	margin-top: 0px;
 	margin-bottom: 3px;
 	margin-left: 0px;
 	margin-right: 3px;
-	padding: 5px;
+	padding: 6px;
     background: #1a1a1a;
 	border-radius: 13px;
-border: none;
 }
 QListWidget::item:selected
 {
     background: #dd3322;
 	color: #101010;
-	border: none;
-	padding: 5px
 }
 QListWidget::item:hover
 {
     background: #505050;
 	color: #101010;
-	margin-top: 2px;
-	margin-bottom: 5px;
-	margin-left: 2px;
-	margin-right: 5px;
-border-radius: 11px;
 }
 
 </string>
@@ -2096,37 +2088,26 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
 
 QListWidget::item
 {
-margin-top: 0px;
+	margin-top: 0px;
 	margin-bottom: 3px;
 	margin-left: 0px;
 	margin-right: 3px;
-	padding: 5px;
+	padding: 6px;
     background: #1a1a1a;
 	border-radius: 13px;
-border: none;
 }
 QListWidget::item:selected
 {
     background: #dd3322;
 	color: #101010;
-	border: none;
-	padding: 5px
 }
 QListWidget::item:hover
 {
     background: #505050;
 	color: #101010;
-	margin-top: 2px;
-	margin-bottom: 5px;
-	margin-left: 2px;
-	margin-right: 5px;
-border-radius: 11px;
 }
 
 </string>
-               </property>
-               <property name="alternatingRowColors">
-                <bool>false</bool>
                </property>
                <property name="isWrapping" stdset="0">
                 <bool>true</bool>
@@ -2302,7 +2283,7 @@ border-radius: 11px;
                 <string notr="true">color: rgb(221, 51, 34);</string>
                </property>
                <property name="text">
-                <string>Rendering</string>
+                <string/>
                </property>
                <property name="alignment">
                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2350,7 +2331,7 @@ border-radius: 11px;
                 <widget class="QLabel" name="bar">
                  <property name="geometry">
                   <rect>
-                   <x>-50</x>
+                   <x>-200</x>
                    <y>0</y>
                    <width>200</width>
                    <height>20</height>

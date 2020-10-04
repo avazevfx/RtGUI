@@ -117,7 +117,7 @@ class RtGui(qtw.QMainWindow):
         self.savetoexit = True
         self.rrtloc = '"D:/Files/Code/Ruby Raytracer/rrt_render.rb"'
         self.rrtloc = '"D:/Files/Code/repos/ruby-raytracer/rrt_render.exe"'
-        self.rrtloc = '"C:/Users/Avaze/Desktop/rrt_render.exe"'
+        #self.rrtloc = '"C:/Users/Avaze/Desktop/rrt_render.exe"'
 
         self.DEFAULTMAT = {"name": "default", "difx": 200, "dify": 200, "difz": 200, "specx": 255, "specy": 255, "specz": 255, "reflectivity": 0, "emisx": 0, "emisy": 0, "emisz": 0, "diftex": None, "spectex": None, "normaltex": None, "normalstrength": 1}
         self.diffuse = None
@@ -191,8 +191,7 @@ class RtGui(qtw.QMainWindow):
         if self.savetoexit:
             self.close()
         else:
-            self.blur.setEnabled(True)
-            self.colorize.setEnabled(True)
+            self.unfocusGui()
             dialog = QDialog()
             ui = Dlg_yn()
             ui.setupUi(dialog)
@@ -208,8 +207,7 @@ class RtGui(qtw.QMainWindow):
             if dialog.exec_():
                 self.close()
 
-            self.blur.setEnabled(False)
-            self.colorize.setEnabled(False)
+            self.focusGui()
 
 
     # Utility
@@ -231,7 +229,7 @@ class RtGui(qtw.QMainWindow):
         if len(self.ui.specx.text()) != 0: specx = self.ui.specx.text()
         if len(self.ui.specy.text()) != 0: specy = self.ui.specy.text()
         if len(self.ui.specz.text()) != 0: specz = self.ui.specz.text()
-        if len(self.ui.emisx.text()) != 0: emisz = self.ui.emisx.text()
+        if len(self.ui.emisx.text()) != 0: emisx = self.ui.emisx.text()
         if len(self.ui.emisy.text()) != 0: emisy = self.ui.emisy.text()
         if len(self.ui.emisz.text()) != 0: emisz = self.ui.emisz.text()
         self.ui.diffusevis.setStyleSheet("QPushButton{border: 2px solid rgb(64, 64, 64);border-radius: 10px;" + f"background-color: rgb({difx}, {dify}, {difz});" + "}QPushButton:hover{border-color: rgb(221, 51, 34);}QPushButton:pressed{border-color: rgb(255, 102, 85);}")

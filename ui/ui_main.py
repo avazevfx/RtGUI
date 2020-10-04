@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:/Files/Code/Python/repos/RtGUI/ui/ui_main.ui'
+# Form implementation generated from reading ui file 'D:/Files/Code/repos/RtGUI/ui/ui_main.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.0
 #
@@ -189,7 +189,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_minimize.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("D:/Files/Code/Python/repos/RtGUI/ui\\../icons/minimize.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("D:/Files/Code/repos/RtGUI/ui\\../icons/minimize.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_minimize.setIcon(icon)
         self.btn_minimize.setIconSize(QtCore.QSize(14, 14))
         self.btn_minimize.setObjectName("btn_minimize")
@@ -209,7 +209,7 @@ class Ui_MainWindow(object):
 "}")
         self.btn_close.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("D:/Files/Code/Python/repos/RtGUI/ui\\../icons/exit.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("D:/Files/Code/repos/RtGUI/ui\\../icons/exit.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_close.setIcon(icon1)
         self.btn_close.setIconSize(QtCore.QSize(14, 14))
         self.btn_close.setObjectName("btn_close")
@@ -329,8 +329,8 @@ class Ui_MainWindow(object):
 "}")
         self.diffusemap.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("D:/Files/Code/Python/repos/RtGUI/ui\\../icons/texture.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        icon2.addPixmap(QtGui.QPixmap("D:/Files/Code/Python/repos/RtGUI/ui\\../icons/textureh.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        icon2.addPixmap(QtGui.QPixmap("D:/Files/Code/repos/RtGUI/ui\\../icons/texture.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("D:/Files/Code/repos/RtGUI/ui\\../icons/textureh.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.diffusemap.setIcon(icon2)
         self.diffusemap.setIconSize(QtCore.QSize(22, 22))
         self.diffusemap.setCheckable(True)
@@ -683,31 +683,23 @@ class Ui_MainWindow(object):
 "\n"
 "QListWidget::item\n"
 "{\n"
-"margin-top: 0px;\n"
+"    margin-top: 0px;\n"
 "    margin-bottom: 3px;\n"
 "    margin-left: 0px;\n"
 "    margin-right: 3px;\n"
-"    padding: 5px;\n"
+"    padding: 6px;\n"
 "    background: #1a1a1a;\n"
 "    border-radius: 13px;\n"
-"border: none;\n"
 "}\n"
 "QListWidget::item:selected\n"
 "{\n"
 "    background: #dd3322;\n"
 "    color: #101010;\n"
-"    border: none;\n"
-"    padding: 5px\n"
 "}\n"
 "QListWidget::item:hover\n"
 "{\n"
 "    background: #505050;\n"
 "    color: #101010;\n"
-"    margin-top: 2px;\n"
-"    margin-bottom: 5px;\n"
-"    margin-left: 2px;\n"
-"    margin-right: 5px;\n"
-"border-radius: 11px;\n"
 "}\n"
 "\n"
 "")
@@ -942,35 +934,26 @@ class Ui_MainWindow(object):
 "\n"
 "QListWidget::item\n"
 "{\n"
-"margin-top: 0px;\n"
+"    margin-top: 0px;\n"
 "    margin-bottom: 3px;\n"
 "    margin-left: 0px;\n"
 "    margin-right: 3px;\n"
-"    padding: 5px;\n"
+"    padding: 6px;\n"
 "    background: #1a1a1a;\n"
 "    border-radius: 13px;\n"
-"border: none;\n"
 "}\n"
 "QListWidget::item:selected\n"
 "{\n"
 "    background: #dd3322;\n"
 "    color: #101010;\n"
-"    border: none;\n"
-"    padding: 5px\n"
 "}\n"
 "QListWidget::item:hover\n"
 "{\n"
 "    background: #505050;\n"
 "    color: #101010;\n"
-"    margin-top: 2px;\n"
-"    margin-bottom: 5px;\n"
-"    margin-left: 2px;\n"
-"    margin-right: 5px;\n"
-"border-radius: 11px;\n"
 "}\n"
 "\n"
 "")
-        self.mat_list.setAlternatingRowColors(False)
         self.mat_list.setProperty("isWrapping", True)
         self.mat_list.setObjectName("mat_list")
         self.gridLayout_3.addWidget(self.mat_list, 0, 1, 3, 1)
@@ -1042,6 +1025,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_status.setFont(font)
         self.label_status.setStyleSheet("color: rgb(221, 51, 34);")
+        self.label_status.setText("")
         self.label_status.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_status.setObjectName("label_status")
         self.horizontalLayout_5.addWidget(self.label_status)
@@ -1058,7 +1042,7 @@ class Ui_MainWindow(object):
         self.bar_container.setFrameShadow(QtWidgets.QFrame.Raised)
         self.bar_container.setObjectName("bar_container")
         self.bar = QtWidgets.QLabel(self.bar_container)
-        self.bar.setGeometry(QtCore.QRect(-50, 0, 200, 20))
+        self.bar.setGeometry(QtCore.QRect(-200, 0, 200, 20))
         self.bar.setStyleSheet("background-color: rgb(221, 51, 34);\n"
 "border-radius: 10px;")
         self.bar.setText("")
@@ -1147,4 +1131,3 @@ class Ui_MainWindow(object):
         self.delmat.setText(_translate("MainWindow", "DEL"))
         self.delmat.setShortcut(_translate("MainWindow", "Backspace, Del"))
         self.label_credits.setText(_translate("MainWindow", "Ruby Raytracer GUI by Tom F."))
-        self.label_status.setText(_translate("MainWindow", "Rendering"))
