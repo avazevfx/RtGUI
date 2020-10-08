@@ -1,17 +1,16 @@
 # ------------------------------------- #
 #                                       #
 # Modern Color Picker by Tom F.         #
-# Version 1.0.0                         #
+# Version 1.2.0                         #
 # made with Qt Creator & PyQt5          #
 #                                       #
 # ------------------------------------- #
 
-import sys
 import colorsys
 
 from PyQt5.QtCore import (QPoint, Qt)
 from PyQt5.QtGui import QColor
-from PyQt5.QtWidgets import (QApplication, QDialog, QGraphicsDropShadowEffect)
+from PyQt5.QtWidgets import (QDialog, QGraphicsDropShadowEffect)
 
 
 from .ui_dark import Ui_ColorPicker as Ui_Dark
@@ -42,7 +41,7 @@ class ColorPicker(QDialog):
         self.ui.drop_shadow_frame.setGraphicsEffect(self.shadow)
 
         # Connect update functions
-        self.ui.hue.sliderMoved.connect(self.hsvChanged)
+        self.ui.hue.mouseMoveEvent = self.moveHueSelector
         self.ui.red.textEdited.connect(self.rgbChanged)
         self.ui.green.textEdited.connect(self.rgbChanged)
         self.ui.blue.textEdited.connect(self.rgbChanged)
@@ -55,8 +54,8 @@ class ColorPicker(QDialog):
         self.ui.window_title.mousePressEvent = self.setDragPos
 
         # Connect selector moving function
-        self.ui.black_overlay.mouseMoveEvent = self.moveSelector
-        self.ui.black_overlay.mousePressEvent = self.moveSelector
+        self.ui.black_overlay.mouseMoveEvent = self.moveSVSelector
+        self.ui.black_overlay.mousePressEvent = self.moveSVSelector
 
         # Connect Ok|Cancel Button Box and X Button
         self.ui.buttonBox.accepted.connect(self.accept)
@@ -72,9 +71,9 @@ class ColorPicker(QDialog):
             if lc == None: lc = self.lastcolor
             else: self.lastcolor = lc
 
-            self.setRGB(self.rgb2hsv(lc))
+            self.setRGB(lc)
             self.rgbChanged()
-            r,g,b = self.hsv2rgb(lc)
+            r,g,b = lc
             self.ui.lastcolor_vis.setStyleSheet(f"background-color: rgb({r},{g},{b})")
 
             if self.exec_():
@@ -82,25 +81,24 @@ class ColorPicker(QDialog):
                 return (r,g,b)
 
             else:
-                r, g, b = self.hsv2rgb(self.lastcolor)
-                return (r,g,b)
+                return self.lastcolor
 
 
     ## Update Functions ##
     def hsvChanged(self):
-        h,s,v = (self.ui.hue.value(), (self.ui.selector.x() + 6) / 2.0, (194 - self.ui.selector.y()) / 2.0)
+        h,s,v = (100 - self.ui.hue_selector.y() / 1.85, (self.ui.selector.x() + 6) / 2.0, (194 - self.ui.selector.y()) / 2.0)
         r,g,b = self.hsv2rgb(h,s,v)
         self.color = (h,s,v)
-        self.setRGB(self.color)
-        self.setHex(self.color)
+        self.setRGB((r,g,b))
+        self.setHex(self.hsv2hex(self.color))
         self.ui.color_vis.setStyleSheet(f"background-color: rgb({r},{g},{b})")
         self.ui.color_view.setStyleSheet(f"border-radius: 5px;background-color: qlineargradient(x1:1, x2:0, stop:0 hsl({h}%,100%,50%), stop:1 #fff);")
 
     def rgbChanged(self):
-        r,g,b = int(self.ui.red.text()), int(self.ui.green.text()), int(self.ui.blue.text())
+        r,g,b = self.i(self.ui.red.text()), self.i(self.ui.green.text()), self.i(self.ui.blue.text())
         self.color = self.rgb2hsv(r,g,b)
         self.setHSV(self.color)
-        self.setHex(self.color)
+        self.setHex(self.rgb2hex((r,g,b)))
         self.ui.color_vis.setStyleSheet(f"background-color: rgb({r},{g},{b})")
 
     def hexChanged(self):
@@ -108,23 +106,23 @@ class ColorPicker(QDialog):
         r,g,b = self.hex2rgb(hex)
         self.color = self.hex2hsv(hex)
         self.setHSV(self.color)
-        self.setRGB(self.color)
+        self.setRGB((r,g,b))
         self.ui.color_vis.setStyleSheet(f"background-color: rgb({r},{g},{b})")
 
 
     def setRGB(self, c):
-        r,g,b = self.hsv2rgb(c)
-        self.ui.red.setText(str(int(r)))
-        self.ui.green.setText(str(int(g)))
-        self.ui.blue.setText(str(int(b)))
+        r,g,b = c
+        self.ui.red.setText(str(self.i(r)))
+        self.ui.green.setText(str(self.i(g)))
+        self.ui.blue.setText(str(self.i(b)))
 
     def setHSV(self, c):
-        self.ui.hue.setValue(c[0])
+        self.ui.hue_selector.move(7, (100 - c[0]) * 1.85)
         self.ui.color_view.setStyleSheet(f"border-radius: 5px;background-color: qlineargradient(x1:1, x2:0, stop:0 hsl({c[0]}%,100%,50%), stop:1 #fff);")
         self.ui.selector.move(c[1] * 2 - 6, (200 - c[2] * 2) - 6)
 
     def setHex(self, c):
-        self.ui.hex.setText(self.hsv2hex(c))
+        self.ui.hex.setText(c)
 
 
     ## Color Utility ##
@@ -172,7 +170,7 @@ class ColorPicker(QDialog):
             self.dragPos = event.globalPos()
             event.accept()
 
-    def moveSelector(self, event):
+    def moveSVSelector(self, event):
         if event.buttons() == Qt.LeftButton:
             pos = event.pos()
             if pos.x() < 0: pos.setX(0)
@@ -182,8 +180,24 @@ class ColorPicker(QDialog):
             self.ui.selector.move(pos - QPoint(6,6))
             self.hsvChanged()
 
+    def moveHueSelector(self, event):
+        if event.buttons() == Qt.LeftButton:
+            pos = event.pos().y() - 7
+            if pos < 0: pos = 0
+            if pos > 185: pos = 185
+            self.ui.hue_selector.move(QPoint(7,pos))
+            self.hsvChanged()
 
-if __name__ == "__main__":
-    app = QApplication([])
-    cp = ColorPicker()
-    cp.getColor()
+    def i(self, text):
+        try: return int(text)
+        except: return 0
+
+    def clampRGB(self, rgb):
+        r,g,b = rgb
+        if r<0.0001: r=0
+        if g<0.0001: g=0
+        if b<0.0001: b=0
+        if r>255: r=255
+        if g>255: g=255
+        if b>255: b=255
+        return (r,g,b)

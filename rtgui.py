@@ -573,7 +573,6 @@ class RenderHost(qtc.QProcess):
 
     def onOutput(self):
         result = self.readAllStandardOutput().data().decode()
-        #if result != "": print(result)
         self.outputSignal.emit(result)
 
     def run(self, cmd):
